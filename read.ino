@@ -52,8 +52,6 @@ void mwrite(int reg, int data)
 }
  
 void setup() {
-  // initialize the digital pin as an output.
-  // Pin 13 has an LED connected on most Arduino boards:
   pinMode(led, OUTPUT);
   pinMode(sck, OUTPUT);
   digitalWrite(sck, HIGH);
@@ -67,7 +65,7 @@ void setup() {
   digitalWrite(sdio, HIGH);
  
   delay(1000);
-  int reg = 0x80;    // 00010001
+  int reg = 0x80;
   int data = 0x01;
  
   mwrite(reg,data);
@@ -86,13 +84,13 @@ void loop() {
   pinMode(sdio, OUTPUT);
   digitalWrite(sdio, HIGH);
  
-  digitalWrite(led, HIGH);   // set the LED on
-  //delay(500);              // wait for a second
-  digitalWrite(led, LOW);    // set the LED off
-  //delay(500);              // wait for a second
-  //int reg = 0x11;    // 00010001
-  int reg = 0x03;    // ok=>X Delta
-  //int reg = 0x08;    // pixels
+  digitalWrite(led, HIGH); 
+  delay(500);            
+  digitalWrite(led, LOW);   
+  delay(500);
+  int reg = 0x11;
+  int reg = 0x03;
+  int reg = 0x08;
   int data = 0;
   int io;
   int i;
@@ -161,7 +159,7 @@ void loop() {
   }
 #endif
  
-  reg = 0x02;    // ok?=>Y Delta
+  reg = 0x02; 
   data = 0;
   pinMode(sdio, OUTPUT);
   pinMode(sck, OUTPUT);
@@ -200,5 +198,5 @@ void loop() {
   digitalWrite(sck, HIGH);
   delay(100);
   Serial.print("y=");
-  Serial.println( data);
+  Serial.println(data);
 }
